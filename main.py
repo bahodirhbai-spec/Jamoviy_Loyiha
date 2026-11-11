@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 from team_project import (
@@ -6,6 +5,7 @@ from team_project import (
     analyzer_File,
     display_plan
 )
+
 
 from analyzer import (
     create_folders,
@@ -16,11 +16,11 @@ from analyzer import (
 
 
 def main():
-
     # 1. Papka manzilini olish
     files = path_File()
 
     if files is None:
+
         return
 
     planned_moves = analyzer_File(files)
@@ -29,9 +29,11 @@ def main():
 
     plan = []
 
-    for filename, category in planned_moves.items():
 
+
+    for filename, category in planned_moves.items():
         src = folder / filename
+
 
         # Faqat oddiy fayllarni qabul qil
         # amiz
@@ -50,11 +52,14 @@ def main():
     # 5. Foydalanuvchidan tasdiq olish
     if confirm():
 
+
         # 6. Papkalarni yaratish
         create_folders(folder, plan)
 
+
         # 7. Fayllarni ko'chirish
         moved, skipped = move_files(folder, plan)
+
 
         # 8. Yakuniy natija
         print_summary(moved, skipped)
@@ -64,4 +69,6 @@ def main():
 
 
 if __name__ == "__main__":
+
+
     main()
